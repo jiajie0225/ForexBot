@@ -48,6 +48,19 @@ class Instrument():
         else:
             return None
 
+    @classmethod
+    def get_pairs_from_string(cls, pair_str):
+        existing_pairs = cls.get_instruments_dict().keys()
+        pairs = pair_str.split(",")
+        
+        pair_list = []
+        for p1 in pairs:
+            for p2 in pairs:
+                p = f"{p1}_{p2}"
+                if p in existing_pairs:
+                    pair_list.append(p)
+        
+        return pair_list
 
 
 
